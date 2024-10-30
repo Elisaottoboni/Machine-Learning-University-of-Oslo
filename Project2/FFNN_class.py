@@ -56,16 +56,34 @@ def CostOLS(target):
         return (1.0 / target.shape[0]) * np.sum((target - X) ** 2)
     return func
 
+def dCostOLS(target):
+    def func(X):
+        return -(2.0 / target.shape[0]) * (target - X)
+    return func
+
 def CostLogReg(target):
     def func(X):
         return -(1.0 / target.shape[0]) * np.sum((target * np.log(X + 10e-10)) + ((1 - target) * np.log(1 - X + 10e-10)))
+    return func
+
+def dCostLogReg(target):
+    def func(X):
+        epsilon = 10e-10
+        return -(1.0 / target.shape[0]) * ((target / (X + epsilon)) - ((1 - target) / (1 - X + epsilon)))
     return func
 
 def CostCrossEntropy(target):
     def func(X):
         return -(1.0 / target.size) * np.sum(target * np.log(X + 10e-10))
     return func
+
+def dCostCrossEntropy(target):
+    def func(X):
+        epsilon = 10e-10
+        return -(1.0 / target.size) * (target / (X + epsilon))
+    return func
  
+
  
 
 
@@ -647,3 +665,150 @@ class FFNN:
             return str(round(value))
         return f"{value:.{decimals-n-1}f}"
 
+
+
+
+
+
+##
+#### General Neural Network (simple)
+##
+
+# ------------------------ Activation functions ------------------------
+def ReLU(z):
+    return np.where(z > 0, z, 0)
+
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+# --------------- Derivatives of the activation functions --------------
+def ReLU_der(z):
+    return np.where(z > 0, 1, 0)
+
+def sigmoid_der(z):
+    return sigmoid(z) * (1 - sigmoid(z))
+
+# --------------------------- Cost functions ---------------------------
+def mse(predict, target):
+    return np.mean((predict - target) ** 2)
+
+# ------------------ Derivatives of the cost functions -----------------
+def mse_der(predict, target): 
+    return (2/len(target)) * (predict - target)
+
+
+
+# Setup functions
+
+def create_layers_batch(network_input_size, layer_output_sizes):
+    layers = []
+
+    i_size = network_input_size
+    for layer_output_size in layer_output_sizes:
+        # Keep week 42 implementation where W shape is (input_size, output_size)
+        W = np.random.randn(i_size, layer_output_size)
+        b = np.random.randn(layer_output_size)
+        layers.append((W, b))
+        
+        i_size = layer_output_size 
+    return layers
+
+
+def feed_forward_batch(inputs, layers, activation_funcs):
+    # Using week 42 implementation where we do a @ W instead of W @ a
+    a = inputs
+    for (W, b), activation_func in zip(layers, activation_funcs):
+        z = a @ W + b # Here we process all samples simultaneously
+                      # Non-batch procedure: z = X[i] @ W + b  --> Processes single sample
+        a = activation_func(z)
+    return a
+
+
+def cost_batch(layers, inputs, activation_funcs, targets):
+    predict = feed_forward_batch(inputs, layers, activation_funcs)
+    return mse(predict, targets)
+
+
+def feed_forward_saver_batch(inputs, layers, activation_funcs):
+    layer_inputs = []
+    zs = []
+    a = inputs # before a = input
+    
+    for (W, b), activation_func in zip(layers, activation_funcs):
+        layer_inputs.append(a)
+        z = a @ W + b  # Using matrix multiplication for batched inputs
+        a = activation_func(z)
+        zs.append(z)
+        
+    return layer_inputs, zs, a
+
+
+def backpropagation_batch(
+    inputs, layers, activation_funcs, targets, activation_ders, cost_der=mse_der
+):
+    layer_inputs, zs, predict = feed_forward_saver_batch(inputs, layers, activation_funcs)
+    
+    layer_grads = [() for layer in layers]
+    batch_size = inputs.shape[0]
+    
+    for i in reversed(range(len(layers))):
+        layer_input, z, activation_der = layer_inputs[i], zs[i], activation_ders[i]
+        
+        if i == len(layers) - 1:
+            dC_da = mse_der(predict, targets)
+            delta = dC_da * activation_der(z)
+        else:
+            W_next = layers[i + 1][0]
+            dC_da = delta @ W_next.T
+            delta = dC_da * activation_der(z)
+        
+        # Calculate gradients - averaging over the batch
+        dC_dW = (layer_input.T @ delta) / batch_size
+        dC_db = np.mean(delta, axis=0)
+        
+        layer_grads[i] = (dC_dW, dC_db)
+    
+    return layer_grads
+
+
+class NeuralNetwork:
+    def __init__(
+        self,
+        network_input_size,
+        layer_output_sizes,
+        activation_funcs,
+        activation_ders,
+        cost_fun,
+        cost_der,
+    ):
+        self.network_input_size = network_input_size
+        self.layer_output_sizes = layer_output_sizes
+        self.activation_funcs = activation_funcs
+        self.activation_ders = activation_ders
+        self.cost_fun = cost_fun
+        self.cost_der = cost_der
+        
+        # Initialize layers (weights and biases)
+        self.layers = create_layers_batch(network_input_size, layer_output_sizes)
+
+    def predict(self, inputs):
+        # Use the feed forward function
+        return feed_forward_batch(inputs, self.layers, self.activation_funcs)
+
+    def cost(self, inputs, targets):
+        # Use the cost function
+        return cost_batch(self.layers, inputs, self.activation_funcs, targets)
+
+    def _feed_forward_saver(self, inputs):
+        # Save activations and pre-activations
+        return feed_forward_saver_batch(inputs, self.layers, self.activation_funcs)
+
+    def compute_gradient(self, inputs, targets):
+        # Compute gradients using backpropagation
+        return backpropagation_batch(inputs, self.layers, self.activation_funcs, targets, self.activation_ders, self.cost_der)
+
+    def update_weights(self, layer_grads, learning_rate):
+        # Update weights and biases based on gradients
+        for i, (dW, db) in enumerate(layer_grads):
+            self.layers[i][0] -= learning_rate * dW  # Update weights
+            self.layers[i][1] -= learning_rate * db  # Update biases
