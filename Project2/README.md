@@ -39,5 +39,3 @@ The `.gitignore` file is used to specify files and directories that Git should i
 The `requirements.txt` file lists the Python dependencies needed to run this project. To install these dependencies, use the following command:
 ```bash
 pip install -r requirements.txt
-
-
