@@ -1,3 +1,5 @@
+import numpy as np
+
 def franke_function(x, y):
     term1 = 0.75 * np.exp(-( (9*x - 2)**2 / 4.0 + (9*y - 2)**2 / 4.0))
     term2 = 0.75 * np.exp(-( (9*x + 1)**2 / 49.0 + (9*y + 1)**2 / 10.0))
