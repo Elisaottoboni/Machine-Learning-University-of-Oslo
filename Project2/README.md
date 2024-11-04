@@ -20,7 +20,13 @@ This project is developed as part of the [FYS-STK3155/FYS4155 - Data Analysis an
   
 - **Project2.pdf**: This document provides the assignment details and guidelines given by our professor for this project.
 
-- **part_A.ipynb**: This notebook includes the complete analysis of gradient descent methods, with implementations and evaluations of various optimizations.
+- **gd_analytic**: This file contains the implementation of the methods utilized in the `partA_analytical_function`.
+
+- **gd_autograd**: This file contains the implementation of the methods utilized in the `partA_autograd`.
+
+- **partA_analytical_function.ipynb**: This notebook includes the complete analysis of gradient descent methods, and evaluations of various optimizations.
+
+- **partA_autograd.ipynb**:This notebook includes the complete analysis of gradient descent methods, with autograd and evaluations of various optimizations.
 
 - **part_B_C_D.ipynb**: This file implements and evaluates the Feed Forward Neural Network (FFNN) for both regression and classification tasks.
 
