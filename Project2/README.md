@@ -16,25 +16,25 @@ This project is developed as part of the [FYS-STK3155/FYS4155 - Data Analysis an
 
 ## Project Files
 
-- \href{run:./Report2.pdf}{\textbf{Report2.pdf}}: Contains the full paper detailing our analysis process, including methodology, results, and discussions for the entire project.
-  
-- \href{run:./Project2.pdf}{\textbf{Project2.pdf}}: This document provides the assignment details and guidelines given by our professor for this project.
+[Report2.pdf](Report2.pdf): Contains the full paper detailing our analysis process, including methodology, results, and discussions for the entire project.
 
-- \href{run:./gd_analytic.py}{\textbf{gd_analytic}}: This file contains the implementation of the methods utilized in the \texttt{partA\_analytical\_function}.
+[Project2.pdf](Project2.pdf): This document provides the assignment details and guidelines given by our professor for this project.
 
-- \href{run:./gd_autograd.py}{\textbf{gd_autograd}}: This file contains the implementation of the methods utilized in the \texttt{partA\_autograd}.
+[gd_analytic.py](gd_analytic.py): This file contains the implementation of the methods utilized in the `partA_analytical_function`.
 
-- \href{run:./partA_analytical_function.ipynb}{\textbf{partA\_analytical\_function.ipynb}}: This notebook includes the complete analysis of gradient descent methods and evaluations of various optimizations.
+[gd_autograd.py](gd_autograd.py): This file contains the implementation of the methods utilized in the `partA_autograd`.
 
-- \href{run:./partA_autograd.ipynb}{\textbf{partA\_autograd.ipynb}}: This notebook includes the complete analysis of gradient descent methods, with autograd and evaluations of various optimizations.
+[partA_analytical_function.ipynb](partA_analytical_function.ipynb): This notebook includes the complete analysis of gradient descent methods and evaluations of various optimizations.
 
-- \href{run:./part_B_C_D.ipynb}{\textbf{part\_B\_C\_D.ipynb}}: This file implements and evaluates the Feed Forward Neural Network (FFNN) for both regression and classification tasks.
+[partA_autograd.ipynb](partA_autograd.ipynb): This notebook includes the complete analysis of gradient descent methods, with autograd and evaluations of various optimizations.
 
-- \href{run:./part_E.ipynb}{\textbf{part\_E.ipynb}}: This notebook implements logistic regression and compares its performance with the previously developed FFNN for classification.
+[part_B_C_D.ipynb](part_B_C_D.ipynb): This file implements and evaluates the Feed Forward Neural Network (FFNN) for both regression and classification tasks.
 
-- \href{run:./FFNeuralNetwork.py}{\textbf{FFNeuralNetwork.py}}: Contains the class implementation of the neural network, including the primary functions used in the project.
+[part_E.ipynb](part_E.ipynb): This notebook implements an enhanced logistic regression model with systematic fine-tuning of key hyperparameters, improving model accuracy and robustness in classification tasks.
 
-- \href{run:./packages.py}{\textbf{packages.py}}: Lists and imports all libraries used in this project for easy setup and configuration.
+[FFNeuralNetwork.py](FFNeuralNetwork.py): Contains the class implementation of the neural network, including the primary functions used in the project.
+
+[packages.py](packages.py): Lists and imports all libraries used in this project for easy setup and configuration.
 
 ## Technical Details
 
