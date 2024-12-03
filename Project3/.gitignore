@@ -1,1 +1,5 @@
+# Virtual environment
 ml_project3_env/
+
+# Images
+confusion_matrix_log_reg.pdf
