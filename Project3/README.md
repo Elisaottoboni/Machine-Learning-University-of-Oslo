@@ -16,8 +16,8 @@ The [dataset](https://www.kaggle.com/datasets/fmena14/volcanoesvenus) used in th
 ## Project Objectives
 - Implement the following classifiers: Logistic Regression, Random Forest, FFNN, and CNN.
 - Address challenges posed by the dataset, such as:
-  - High dimensionality.
-  - Class imbalance.
+  - High dimensionality (addressed through PCA for dimensionality reduction).
+  - Class imbalance (mitigated with oversampling techniques like SMOTE).
   - Noise and uncertainties in the labeling process.
 - Evaluate and compare the performance of the implemented classifiers using metrics like precision, recall, F1-score, and accuracy.
 
@@ -25,5 +25,8 @@ The [dataset](https://www.kaggle.com/datasets/fmena14/volcanoesvenus) used in th
 This project aligns with ongoing efforts in planetary science to develop automated systems capable of analyzing planetary imagery. It complements the objectives of NASA's upcoming VERITAS mission, which aims to further map Venus's surface using advanced radar and spectroscopic techniques.
 
 ## Project Files
+This section will provide an overview of the main files and scripts in the repository once the project is finalized.
 
-To be defined
+---
+
+We welcome any feedback, suggestions, or contributions to improve the classifiers and analyses!
