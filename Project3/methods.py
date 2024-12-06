@@ -41,8 +41,7 @@ def training_results_graph(model, model_code):
 
 def plot_roc_curve(model, X_test, y_test, model_code):
     """
-    Plots the ROC curve for a given model.
-
+    Plots the ROC curve for a given model:
     Parameters:
     - model: Trained model (must have predict_proba or predict method)
     - X_test: Test data features
