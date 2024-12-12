@@ -1,10 +1,6 @@
 # Virtual environment
-<<<<<<< Updated upstream
-ml_project3_env/
-=======
 ml_project3_env/
 
 # Images
 confusion_matrix_log_reg.pdf
 __pycache__
->>>>>>> Stashed changes
