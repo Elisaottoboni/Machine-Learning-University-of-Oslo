@@ -71,3 +71,29 @@ def plot_roc_curve(model, X_test, y_test, model_code):
     plt.savefig(f'images/{model_code}_roc_curve.png', dpi=300, bbox_inches='tight')
 
     plt.show()
+
+
+def plot_metrics(train_loss_list, train_acc_list, test_loss_list, test_acc_list, name, epochs=25):
+    # Plotting
+    plt.figure(figsize=(14, 10))
+    plt.subplot(2, 1, 1)
+    plt.plot(range(1, epochs + 1), train_loss_list, label="Train Loss", color='blue', linewidth=3)
+    plt.plot(range(1, epochs + 1), test_loss_list, label="Test Loss", color='orange', linestyle='--', linewidth=3)
+    plt.xlabel('Epochs', fontsize=15)
+    plt.ylabel('Loss', fontsize=15)
+    plt.legend(fontsize=15)
+    plt.grid(True, linestyle='--', linewidth=0.5, alpha=0.7)
+    plt.title(f"Loss vs. Epochs")
+    
+    plt.subplot(2, 1, 2)
+    plt.plot(range(1, epochs + 1), train_acc_list, label="Train Accuracy", color='blue', linewidth=3)
+    plt.plot(range(1, epochs + 1), test_acc_list, label="Test Accuracy", color='orange', linestyle='--', linewidth=3)
+    plt.xlabel('Epochs', fontsize=15)
+    plt.ylabel('Accuracy', fontsize=15)
+    plt.legend(fontsize=15)
+    plt.grid(True, linestyle='--', linewidth=0.5, alpha=0.7)
+    plt.title(f"Accuracy vs. Epochs")
+    
+    plt.tight_layout()
+    plt.savefig(f'images/{name}_training_results.png', dpi=300, bbox_inches='tight')
+    plt.show()
