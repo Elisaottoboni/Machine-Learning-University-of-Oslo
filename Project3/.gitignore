@@ -1,6 +1,18 @@
-# Virtual environment
+# Ignore virtual environment
 ml_project3_env/
 
-# Images
-confusion_matrix_log_reg.pdf
-__pycache__
+# Ignore ModelTrained
+ModelTrained/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+.DS_Store
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore images
+random_forest_cv_visualization.pdf
+random_forest_overfitting_visualization_500.pdf
+random_forest_overfitting_visualization.pdf 
