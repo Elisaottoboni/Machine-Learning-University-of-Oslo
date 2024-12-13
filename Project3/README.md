@@ -17,9 +17,9 @@ The [dataset](https://www.kaggle.com/datasets/fmena14/volcanoesvenus) used in th
 ## Project Objectives
 - Implement the following classifiers: Logistic Regression, Random Forest, FFNN, and CNN.
 - Address challenges posed by the dataset, such as:
-- High dimensionality (addressed through PCA for dimensionality reduction).
-- Class imbalance (mitigated with oversampling techniques like SMOTE).
-- Noise and uncertainties in the labeling process.
+    - High dimensionality (addressed through PCA for dimensionality reduction).
+    - Class imbalance (mitigated with oversampling techniques like SMOTE).
+    - Noise and uncertainties in the labeling process.
 - Evaluate and compare the performance of the implemented classifiers using metrics like precision, recall, F1-score, accuracy, ROC curve, and AUC.
 
 ## Relevance
