@@ -49,7 +49,8 @@ The `.gitignore` file specifies files and directories to be excluded from versio
 The `requirements.txt` file lists the Python dependencies needed to run this project. To install these dependencies, use the following command:
 ```bash
 pip install -r requirements.txt
+```
 
 ---
 
-We welcome any feedback, suggestions, or contributions to improve the classifiers and analyses!
+We welcome any feedback, suggestions, or contributions to improve the classifiers and analyses! Feel free to reach out at [lotopedro29@gmail.com](mailto:lotopedro29@gmail.com)
