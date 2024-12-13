@@ -27,19 +27,17 @@ This project aligns with ongoing efforts in planetary science to develop automat
 
 ## Project Files
 
-The following is a breakdown of the main files included in this project:
+[CNN_Based_Detection_Report.pdf](CNN_Based_Detection_Report.pdf): Final report detailing the methods, implementation, and results of the project. Includes analysis of classifiers (CNN, FFNN, Logistic Regression, Random Forest), preprocessing techniques (PCA, SMOTE), and key performance metrics.
 
-- **CNN_Based_Detection_Report.pdf**: Final report detailing the methods, implementation, and results of the project. Includes analysis of classifiers (CNN, FFNN, Logistic Regression, Random Forest), preprocessing techniques (PCA, SMOTE), and key performance metrics.
+[CNN.ipynb](CNN.ipynb): Implements a Convolutional Neural Network (CNN) for detecting volcanic formations in Venus's surface images. Includes both baseline (Model A) and improved (Model B) architectures, focusing on metrics such as accuracy, AUC, and loss dynamics. Model B incorporates dropout for enhanced generalization.
 
-- **CNN.ipynb**: Implements a Convolutional Neural Network (CNN) for detecting volcanic formations in Venus's surface images. Includes both baseline (Model A) and improved (Model B) architectures, focusing on metrics such as accuracy, AUC, and loss dynamics. Model B incorporates dropout for enhanced generalization.
-  
-- **FNN.ipynb**: Implements a Feedforward Neural Network (FFNN) using PyTorch and Keras frameworks. Optimized using Adam and RMSprop optimizers, achieving significant accuracy improvements through learning rate tuning and dropout layers.
+[FNN.ipynb](FNN.ipynb): Implements a Feedforward Neural Network (FFNN) using PyTorch and Keras frameworks. Optimized using Adam and RMSprop optimizers, achieving significant accuracy improvements through learning rate tuning and dropout layers.
 
-- **logistic_regression.ipynb**: Contains the implementation of Logistic Regression for binary classification. Preprocessing includes PCA for dimensionality reduction and SMOTE to address class imbalance. Key metrics: precision (0.78), recall (0.79), and F1-score (0.78).
+[logistic_regression.ipynb](logistic_regression.ipynb): Contains the implementation of Logistic Regression for binary classification. Preprocessing includes PCA for dimensionality reduction and SMOTE to address class imbalance. Key metrics: precision (0.78), recall (0.79), and F1-score (0.78).
 
-- **random_forest.ipynb**: Implements the Random Forest classifier, with parameter tuning via grid search. Evaluates performance using metrics like precision (0.55), recall (0.66), and F1-score (0.60). Includes analysis of overfitting and pruning strategies.
+[random_forest.ipynb](random_forest.ipynb): Implements the Random Forest classifier, with parameter tuning via grid search. Evaluates performance using metrics like precision (0.55), recall (0.66), and F1-score (0.60). Includes analysis of overfitting and pruning strategies.
 
-- **methods.py**: A utility script providing shared functions for preprocessing, dimensionality reduction (PCA), and data balancing (SMOTE). Supports all classifier implementations.
+[methods.py](methods.py): A utility script providing shared functions for preprocessing, dimensionality reduction (PCA), and data balancing (SMOTE). Supports all classifier implementations.
 
 ## Technical Details
 
