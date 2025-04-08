@@ -97,3 +97,4 @@ def plot_metrics(train_loss_list, train_acc_list, test_loss_list, test_acc_list,
     plt.tight_layout()
     plt.savefig(f'images/{name}_training_results.png', dpi=300, bbox_inches='tight')
     plt.show()
+    
